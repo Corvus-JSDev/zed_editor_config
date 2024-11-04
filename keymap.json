@@ -1,0 +1,35 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+	{
+		"context": "Workspace",
+		"bindings": {
+			// "shift shift": "file_finder::Toggle"
+			"ctrl-t": ["workspace::SendKeystrokes", "ctrl-b"],
+			"ctrl-r": null
+		}
+	},
+	{
+		"context": "Editor",
+		"bindings": {
+			"ctrl-t": ["workspace::SendKeystrokes", "ctrl-b"],
+			"ctrl-shift-down": ["workspace::SendKeystrokes", "alt-shift-down"],
+			"ctrl-shift-up": ["workspace::SendKeystrokes", "alt-shift-up"],
+
+			// Hacky way to run python by pressing ctrl+r
+			"ctrl-shift-q": "editor::CopyPath",
+			"cmd-shift-j": "terminal_panel::ToggleFocus",
+			"ctrl-r": [
+				"workspace::SendKeystrokes",
+				"ctrl-shift-q cmd-shift-j clear enter python3 space ctrl-shift-v enter"
+			]
+
+			// "ctrl-leftclick": ["workspace::SendKeystrokes", "alt-leftclick"]  for now zed doesnt allow customizing the mouse clicks :(
+		}
+	}
+]
